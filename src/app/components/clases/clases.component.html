@@ -10,3 +10,13 @@
 <button type="button" (click)="propiedades.danger =!propiedades.danger" class="btn" [ngClass]=" {'text-danger': propiedades.danger, 'text-info': !propiedades.danger }">
   Cambiar
 </button>
+<br><br>
+<!-- proceso que permite condicionar la clase de estilo y cambiar icono del boton
+cuando espera que termine el proceso asincrono. -->
+<h3>Proceso asíncrono esperar boton</h3>
+<button (click)="ejecutar()" class="btn btn-primary" type="button" name="button" [disabled]="cargando">
+  <i [ngClass]="{'fa-save':!cargando, 'fa-refresh fa-spin':cargando}" class="fa"></i>
+
+<span *ngIf="!cargando"> Guardar Cambios</span>
+<span *ngIf="cargando"> Espere por favor..</span>
+</button>
