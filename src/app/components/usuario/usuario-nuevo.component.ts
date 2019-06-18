@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-/* como obtener la informacion del parametro de la url */
+/* como obtener la informacion del parametro de la url 
+en la ruta se utiliza .parent para indicar que se quiere el valor
+de la ruta del padre, esta se capturara en la ruta hija.
+*/
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
