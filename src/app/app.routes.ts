@@ -3,23 +3,19 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { UsuarioComponent } from './components/usuario/usuario.component';
 
-/* children: se agregan las rutas hijas que pueden navegar dentro de la pagina */
-import { UsuarioNuevoComponent } from './components/usuario/usuario-nuevo.component';
-import { UsuarioEditarComponent } from './components/usuario/usuario-editar.component';
-import { UsuarioDetalleComponent } from './components/usuario/usuario-detalle.component';
+/* children: se agregan las rutas hijas que pueden navegar dentro de la pagina 
+   se crea un nuevo archivo para las rutas hijas, tambien se podria haber hecho en la misma
+   pagina.
+*/
+import { RUTAS_HIJAS } from './components/usuario/usuario.routes';
+
 
 const RUTAS: Routes = [
     { path: 'home', component: HomeComponent },
     {
         path: 'usuario/:id',
         component: UsuarioComponent,
-        children: [
-            { path: 'nuevo', component: UsuarioNuevoComponent },
-            { path: 'editar', component: UsuarioEditarComponent },
-            { path: 'detalle', component: UsuarioDetalleComponent },
-            { path: '**', pathMatch: 'full', redirectTo: 'nuevo' }
-
-        ]
+        children: RUTAS_HIJAS
     },
     { path: '**', pathMatch: 'full', redirectTo: 'home' },
 ];

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+/* como obtener la informacion del parametro de la url */
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-usuario-nuevo',
@@ -11,7 +13,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsuarioNuevoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ruta: ActivatedRoute) {
+    this.ruta.parent.params.subscribe(parametro => {
+      console.log('Parametro padre ruta hija');
+      console.log(parametro);
+    });
+  }
 
   ngOnInit() {
   }
